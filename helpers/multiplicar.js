@@ -1,14 +1,20 @@
-const fs = require('fs');
-const colors = require('colors');
+import colors from 'colors';
+import fs from 'fs';
 
-const crearArchivoTabla = async (base = 5, listar = false, hasta = 1) => {
+export const crearArchivoTabla = async (
+  base = 5,
+  listar = false,
+  hasta = 1
+) => {
   try {
     let salida = '';
     let consola = '';
 
     for (let i = 1; i <= hasta; i++) {
       salida += `${base} x ${i} = ${base * i}\n`;
-      consola += `${colors.yellow(base)} ${colors.blue('x')} ${colors.red(i)} ${colors.blue('=')} ${colors.magenta(base * i)}\n`;
+      consola += `${colors.yellow(base)} ${colors.blue('x')} ${colors.red(
+        i
+      )} ${colors.blue('=')} ${colors.magenta(base * i)}\n`;
     }
 
     if (listar) {
@@ -25,5 +31,3 @@ const crearArchivoTabla = async (base = 5, listar = false, hasta = 1) => {
     throw err;
   }
 };
-
-module.exports = { crearArchivoTabla };
